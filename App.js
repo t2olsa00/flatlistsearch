@@ -12,9 +12,14 @@ export default function App() {
   }, [])
 
   const executeSearch = (search) => {
-    const searchArray = DATA.filter((item)  =>  item.lastname.startsWith(search));
+    const lowerCaseSearch = search.toLowerCase();
+
+    const searchArray = DATA.filter((item) =>
+      item.lastname.toLowerCase().startsWith(lowerCaseSearch)
+    );
+
     setItems(searchArray);
-  }
+  };
 
   return (
     <SafeAreaView style={styles.container}>
